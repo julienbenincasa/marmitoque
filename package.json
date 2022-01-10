@@ -1,0 +1,22 @@
+{
+  "name": "marmitoque",
+  "version": "1.0.0",
+  "description": "NodeJS/Vue.js project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julienbenincasa/marmitoque.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julienbenincasa/marmitoque/issues"
+  },
+  "homepage": "https://github.com/julienbenincasa/marmitoque#readme",
+  "dependencies": {
+    "express.js": "^1.0.0"
+  }
+}

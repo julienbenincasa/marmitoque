@@ -4,9 +4,9 @@
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input v-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input v-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
@@ -18,24 +18,25 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapActions } from "vuex"
 
 export default {
     name: "login",
     data() {
     return {
-      email: "",
-      password: ""
+      credentials: {
+        email: "",
+        password: ""
+      }
     };
   },
     methods: {
-        async handleSubmit() {
-            const login = await axios.post("https://marmitoque-server.herokuapp.com/auth/login", {
-                email: this.email,
-                password: this.password
-            })
-            this.$router.push('/home')
-        }
+      ...mapActions({
+        signIn: 'auth/signIn'
+      }),
+      handleSubmit() {
+        this.signIn(this.credentials)
+      }
     }
 }
 </script>

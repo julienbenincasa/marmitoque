@@ -1,16 +1,13 @@
 import { createStore } from 'vuex';
+import auth from './auth';
 
 export default createStore({
-    state: {
-        jwt: null,
-    },
-    mutations: {
-        setJwt(state, jwt) {
-            state.jwt = jwt
-        }
-    },
+    state: {},
+    mutations: {},
     actions: {},
-    modules: {}
+    modules: {
+        auth
+    }
   });
   
 

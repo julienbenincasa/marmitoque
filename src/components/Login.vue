@@ -35,7 +35,11 @@ export default {
         signIn: 'auth/signIn'
       }),
       handleSubmit() {
-        this.signIn(this.credentials)
+        this.signIn(this.credentials).then(() => {
+          this.$router.replace({
+            path:'/home'
+          })
+        })
       }
     }
 }

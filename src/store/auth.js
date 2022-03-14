@@ -10,6 +10,15 @@ export default {
             pseudo: null
         }
     },
+    getters: {
+        authenticated (state) {
+            return state.token != null && state.user != null
+        },
+
+        userPseudo (state) {
+            return state.user.pseudo
+        }
+    },
     mutations: {
         SET_TOKEN (state, token) {
             state.token = token
@@ -33,7 +42,7 @@ export default {
                 return
             })
 
-            dispatch('attempt', response.data.jwt)
+            return dispatch('attempt', response.data.jwt)
         },
 
         async attempt ({ commit }, token) {

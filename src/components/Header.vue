@@ -1,14 +1,15 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <img src="../../images/icon.png" alt="" class="header-icon">
+            <a class="navbar-brand" href="#"> Marmitoque</a>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <router-link to="/home" class="nav-link">Home</router-link>
+                    <router-link to="/home" class="nav-link">Accueil</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/recipes" class="nav-link">Recipes</router-link>
+                    <router-link to="/recipes" class="nav-link">Recettes</router-link>
                 </li>
                 <div v-if="!authenticated">
                     <li class="nav-item" >
@@ -46,5 +47,8 @@ export default {
 <style scoped>
 li > p {
     margin-bottom: 0;
+}
+.header-icon {
+    width: 3%;
 }
 </style>

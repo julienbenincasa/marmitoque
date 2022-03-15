@@ -13,16 +13,16 @@
                 </li>
                 <div v-if="!authenticated">
                     <li class="nav-item" >
-                        <router-link to="/login" class="nav-link">Login</router-link>
+                        <router-link to="/login" class="nav-link">Se connecter</router-link>
                     </li>
                 </div>
                 <div class="d-flex" v-else-if="authenticated">
                     <li class="nav-item" >
-                        <p class="nav-link">Hello {{ userPseudo }} !</p>
+                        <p class="nav-link">Bonjour {{ userPseudo }} !</p>
                     </li>
                     <li class="nav-item" >
                         <!--<router-link to="/login" class="nav-link">Login</router-link>-->
-                        <a href='#' class="nav-link">Logout</a>
+                        <a href='#' class="nav-link">Se deconnecter</a>
                     </li>
                 </div>
             </ul>

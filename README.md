@@ -31,6 +31,10 @@ npm run lint
 
 ### Missing tasks : 
 
-- Création de compte
+- Création de compte : erreur CORS avec appel depuis le front (malgré utilisation du middleware cors | mais fonctionnel avec localhost & postman)
 
-- Hebergement Netlify 
+- Deconnexion : suppression du jwt du store possible mais jwt toujours valide, reload the page envisageable mais solution peu passionante et réaliste
+
+- Hebergement Netlify
+
+- CSS très simple

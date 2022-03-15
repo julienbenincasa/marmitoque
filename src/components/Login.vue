@@ -2,23 +2,24 @@
   <div class="text-center">
       <form @submit.prevent="handleSubmit" class="form-signin">
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input v-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input v-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+      <label for="inputEmail" class="sr-only">E-mail</label>
+      <input v-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>
+      <label for="inputPassword" class="sr-only">Mot de passe</label>
+      <input v-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> Se souvenir de moi
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
     </form>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex"
+import { mapMutations } from "vuex"
 
 export default {
     name: "login",
@@ -34,11 +35,16 @@ export default {
       ...mapActions({
         signIn: 'auth/signIn'
       }),
+      ...mapMutations({
+          showLoading: 'LOADING_SPINNER_SHOW_MUTATION',
+      }),
       handleSubmit() {
+        this.showLoading({val: true});
         this.signIn(this.credentials).then(() => {
           this.$router.replace({
             path:'/home'
           })
+        this.showLoading({val: false});
         })
       }
     }

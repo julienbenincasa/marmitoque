@@ -1,6 +1,5 @@
 <template>
 <thead>
-  <h1>Recipes</h1>
 </thead>
 
 <tbody>
@@ -21,6 +20,7 @@
 <script>
 import Recipe from "../recipes/Recipe.vue";
 import { getAllRecipes } from "../../helpers/recipes.js";
+import { mapMutations } from "vuex";
 
 export default {
   name: "Recipes",
@@ -32,11 +32,21 @@ export default {
       recipes: [],
     };
   },
+  methods: {
+    ...mapMutations({
+      showLoading: 'LOADING_SPINNER_SHOW_MUTATION',
+    })
+  },
   mounted() {
+    this.showLoading({val: true});
     getAllRecipes().then(response => {
       this.recipes = response.data;
+      this.showLoading({val: false});
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error)
+      this.showLoading({val: false});
+    });
   },
 };
 

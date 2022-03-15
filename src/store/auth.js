@@ -17,6 +17,14 @@ export default {
 
         userPseudo (state) {
             return state.user.pseudo
+        },
+
+        userId (state) {
+            return state.user.id
+        },
+
+        token (state) {
+            return state.token
         }
     },
     mutations: {
@@ -37,12 +45,22 @@ export default {
             })
             .catch(function(error) {
                 if (error.response && error.response.status === 401) {
-                  console.log(error.response.data.error)
+                    alert(error.response.data.error)
                 }
                 return
             })
 
             return dispatch('attempt', response.data.jwt)
+        },
+
+        async newRecipe (credentials) {
+            const response = await axios.post("https://marmitoque-server.herokuapp.com/recipes", credentials, { headers: {"Authorization" : `Bearer ${token}`}})
+            .catch(function(error) {
+                if (error.response && error.response.status === 401) {
+                    alert(error.response.data.error)
+                }
+                return
+            })
         },
 
         async attempt ({ commit }, token) {

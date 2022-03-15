@@ -19,7 +19,7 @@ footer {
   bottom: 0;
   padding-top: 0;
   padding-bottom: 10px;
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
 p{

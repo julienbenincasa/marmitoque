@@ -27,5 +27,6 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgb(228, 228, 228);
+  z-index: 99999;
 }
 </style> 

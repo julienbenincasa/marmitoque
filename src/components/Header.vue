@@ -11,12 +11,20 @@
                 <li class="nav-item">
                     <router-link to="/recipes" class="nav-link">Recettes</router-link>
                 </li>
+                <div v-if="authenticated">
+                    <li class="nav-item" >
+                        <router-link to="/newRecipe" class="nav-link">Créer une recette</router-link>
+                    </li>
+                </div>
                 <div v-if="!authenticated">
                     <li class="nav-item" >
                         <router-link to="/login" class="nav-link">Se connecter</router-link>
                     </li>
                 </div>
                 <div class="d-flex" v-else-if="authenticated">
+                    <li class="nav-item" >
+                        <router-link to="/my-recipes" class="nav-link">Mes recettes</router-link>
+                    </li>
                     <li class="nav-item" >
                         <p class="nav-link">Bonjour {{ userPseudo }} !</p>
                     </li>

@@ -1,7 +1,9 @@
 <template>
     <Header />
     <Spinner v-if="showLoader"></Spinner>
+    <div class="content">
     <router-view></router-view>
+    </div>
     <Footer />
 </template>
 
@@ -27,11 +29,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 html,
 body {
   height: 100%;
   margin: 0;
+}
+
+.content {
+  margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #app {

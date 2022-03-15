@@ -4,34 +4,49 @@ import Login from '../components/Login.vue';
 import Recipes from '../components/recipes/Recipes.vue';
 import RecipesById from '../components/recipes/RecipeDetails.vue';
 import CooksById from '../components/cooks/Cook.vue';
+import MyRecipes from '../components/recipes/MyRecipes.vue';
+import NewRecipe from '../components/recipes/NewRecipe.vue';
+import EditRecipe from '../components/recipes/EditRecipe.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path:"/",
+      path: "/",
       component: Home
     },
     {
-      path:"/home",
+      path: "/home",
       component: Home
     },
     {
-      path:"/login",
+      path: "/login",
       component: Login
     },
     {
-      path:"/recipes",
+      path: "/recipes",
       component: Recipes
     },
     {
-      path:"/recipes/:id",
+      path: "/recipes/:id",
       component: RecipesById
     },
     {
-      path:"/cooks/:id",
+      path: "/my-recipes",
+      component: MyRecipes
+    },
+    {
+      path: "/cooks/:id",
       component: CooksById
-    }
+    },
+    {
+      path: "/newRecipe",
+      component: NewRecipe
+    },
+    {
+      path: "/edit-recipe/:id",
+      component: EditRecipe
+    },
   ],
 });
 

@@ -1,19 +1,24 @@
 <template>
-  <a href="/recipes"> Retour aux recettes </a>
+<div class="content">
+  <router-link to="/recipes"> Retour aux recettes </router-link>
   <div class="card">
-  <img src="https://assets.afcdn.com/recipe/20160624/1254_w300h400c1cx1872cy2169.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"> {{recipe.name}} </h5>
-    <p class="card-text"> {{recipe.description}} </p>
-    <p class="card-text"> Créée par : {{ userCreator }} </p>
+    <img src="https://assets.afcdn.com/recipe/20160624/1254_w300h400c1cx1872cy2169.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{recipe.name}} </h5>
+      <p class="card-text"> {{recipe.description}} </p>
+      <p class="card-text"> Créée par : {{ userCreator }} </p>
+    </div>
   </div>
 </div>
+  
 </template>
 
 <script>
 import { getRecipeById } from '../../helpers/recipes';
 import { getCookById } from '../../helpers/cooks';
 import RecipesVue from './Recipes.vue';
+import { mapMutations } from "vuex";
+
 export default {
   name: "RecipeById",
   data() {
@@ -23,12 +28,20 @@ export default {
       id: this.$route.params.id,
     };
   },
+  methods: {
+    ...mapMutations({
+      showLoading: 'LOADING_SPINNER_SHOW_MUTATION',
+    })
+  },
   mounted() {
+    this.showLoading({val: true});
+
     getRecipeById(this.id).then(response => {
       this.recipe = response.data;
 
     getCookById(this.recipe.creator_id).then(user => {
       this.userCreator = user.data.pseudo;
+      this.showLoading({val: false});
     })
     .catch(error => console.log(error));
     })
@@ -70,5 +83,9 @@ a:hover {
 
   box-shadow: 1px 1px 3px rgb(123, 118, 138);
 
+}
+
+.content {
+  margin-bottom: 10%;
 }
 </style>

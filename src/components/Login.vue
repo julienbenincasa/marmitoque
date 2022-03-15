@@ -44,7 +44,10 @@ export default {
           this.$router.replace({
             path:'/home'
           })
-        this.showLoading({val: false});
+          this.showLoading({val: false});
+        })
+        .catch( () => {
+          this.showLoading({val: false});
         })
       }
     }

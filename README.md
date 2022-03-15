@@ -35,6 +35,8 @@ npm run lint
 
 - Deconnexion : suppression du jwt du store possible mais jwt toujours valide, reload the page envisageable mais solution peu passionante et réaliste
 
+- Refresh page sur suppression de recette (car perte du store et donc du token --> deconnexion)
+
 - Hebergement Netlify
 
 - CSS très simple, pas d'image propre à chaque recette

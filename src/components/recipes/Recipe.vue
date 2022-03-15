@@ -5,8 +5,8 @@
   <div class="card-body">
     <h5 class="card-title"> {{ name }}</h5>
     <router-link v-bind:to="'/recipes/' + this.id " class="btn btn-primary" > Plus de détails... </router-link> <br>
-    <router-link v-bind:to="'/edit-recipe/' + this.id " class="btn btn-warning" > Modifier </router-link> <br>
-    <button v-on:click="test" class="btn btn-danger" > Supprimer </button>
+    <router-link v-bind:to="'/edit-recipe/' + this.id " class="btn btn-warning" v-if="creator" > Modifier </router-link> <br>
+    <button v-on:click="test" class="btn btn-danger"  v-if="creator"> Supprimer </button>
   </div>
 </div>
 </template>
@@ -16,13 +16,21 @@ import { deleteRecipe } from '../../helpers/recipes';
 export default {
   name: "recipe",
   props: ["name", "id"],
-
+  data() {
+    return {
+      creator: false,
+    } 
+  },
   methods: {
 
+    creatorOrNot() {
+      if (this.$route.fullPath == "/my-recipes") {
+        this.creator = true;
+      }      
+    },
+
     test: function(){
-      console.log("alo");
       deleteRecipe(this.$store.getters['auth/token'], this.id).then( () => {
-          console.log("Recette supprimée")
           this.$forceUpdate();
         }).catch(error => {
             console.log(error)
@@ -30,6 +38,9 @@ export default {
       )
     }
     
+  },
+  beforeMount(){
+    this.creatorOrNot();
   },
 };
 </script>

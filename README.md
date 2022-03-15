@@ -37,4 +37,4 @@ npm run lint
 
 - Hebergement Netlify
 
-- CSS très simple
+- CSS très simple, pas d'image propre à chaque recette

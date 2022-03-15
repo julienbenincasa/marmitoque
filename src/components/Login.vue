@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
       <form @submit.prevent="handleSubmit" class="form-signin">
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="https://www.foodyparis.com/upload/pages/chef-michel-dumas.jpg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
       <label for="inputEmail" class="sr-only">E-mail</label>
       <input v-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>

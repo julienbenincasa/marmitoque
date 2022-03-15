@@ -1,6 +1,6 @@
 <template>
 <div class="content">
-  <router-link to="/recipes"> Retour aux recettes </router-link>
+  <router-link to="/recipes" class="retour"> Retour aux recettes </router-link>
   <div class="card">
     <img src="https://assets.afcdn.com/recipe/20160624/1254_w300h400c1cx1872cy2169.jpg" class="card-img-top" alt="...">
     <div class="card-body">
@@ -63,20 +63,21 @@ export default {
 
 .card-img-top {
   margin: 0 auto;
-  width: 45%;
 }
 
-a {
+.retour {
+  position: fixed;
+  top: 100px;
+  left: 10px;
   padding: .2em 1.2em;
   color: black;
   text-decoration: none;
-  margin-left: 10px;
   background-color: rgb(228, 228, 228);
   border: none;
   box-shadow: 1px 1px 3px grey;
 
 }
-a:hover {
+.retour:hover {
   color: black;
   text-decoration: none;
   background-color: rgb(192, 192, 192);
@@ -86,6 +87,8 @@ a:hover {
 }
 
 .content {
+  margin: 0 auto;
+  width: 50%;
   margin-bottom: 10%;
 }
 </style>

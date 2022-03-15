@@ -1,15 +1,13 @@
 <template>
-  <h1>Modifier une recette</h1>
-
   <div class="text-center">
       <form @submit.prevent="handleSubmit" class="form-signin">
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="https://www.foodyparis.com/upload/pages/chef-michel-dumas.jpg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Créer une nouvelle recette</h1>
       <label for="inputRecipeName" class="sr-only">Nom</label>
       <input v-model="credentials.name" type="text" id="inputRecipeName" class="form-control" placeholder="Nom" required autofocus>
       <label for="inputDescription" class="sr-only">Description</label>
       <input v-model="credentials.description" type="text" id="inputDescription" class="form-control" placeholder="Description" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Créer</button>
+      <button class="btn btn-lg btn-primary btn-block buttonCreer" type="submit">Créer</button>
     </form>
   </div>
 </template>
